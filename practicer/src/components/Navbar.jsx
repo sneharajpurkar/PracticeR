@@ -1,8 +1,13 @@
 import React from 'react'
 import './Home.css';
+import { Route, useNavigate } from 'react-router-dom';
 
 
 const Navbar = () => {
+    const route = useNavigate();
+    function login_data() {
+        route('/login')
+    }
     return (
         <>
             <div id='navbar'>
@@ -30,7 +35,7 @@ const Navbar = () => {
                     <div>
                         <p>EN</p>
                     </div>
-                    <div>
+                    <div onClick={login_data}>
                         <p>Login</p>
                     </div>
                     <div>
