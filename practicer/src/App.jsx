@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import TopRated from './components/TopRated';
 import UpcomingMovie from './components/UpcomingMovie';
 import SingleMovie from './components/SingleMovie';
+import SearchMovie from './components/SearchMovie';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
       <Route exact path='/login' element={<Login/>}/>
       <Route exact path='/toprated' element={<TopRated/>}/>
       <Route exact path='/upcomingMovie' element={<UpcomingMovie/>}/>
-      <Route exact path='/singlemovie' element={<SingleMovie/>}/>
+      <Route exact path='/singlemovie/:id' element={<SingleMovie/>}/>
+      <Route exact path='/searchmovie/:name' element={<SearchMovie/>}/>
     </Routes>
     </>
   );

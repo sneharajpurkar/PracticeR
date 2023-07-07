@@ -1,10 +1,27 @@
 import React from 'react'
+import { useState } from 'react';
 import './Home.css';
 import { Route, useNavigate } from 'react-router-dom';
 
 
 const Navbar = () => {
     const route = useNavigate();
+    const [data, setData] = useState({ movie: "" });
+        
+    const getData = (e) => {
+        let name = e.target.name;
+        let value = e.target.value;
+
+        setData({ ...data, [name]: value });
+    };
+
+    const submit = (e) => {
+        e.preventDefault();
+        setData({ movie: "" });
+        route(`/searchmovie/${data.movie}`);
+    };
+
+    console.log(data);
     function login_data() {
         route('/login')
     }
@@ -42,7 +59,10 @@ const Navbar = () => {
                         <p>Join TMDB</p>
                     </div>
                     <div>
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input placeholder='Search' type='text' name="movie" onChange={(e) => { getData(e); }} value={data.movie} />
+                        <button onClick={(e) => {
+                            submit(e);
+                        }}>Submit</button>
                     </div>
                 </div>
             </div>
